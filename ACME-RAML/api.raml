@@ -1,0 +1,126 @@
+#%RAML 1.0
+title: ACME Account Mgmt API
+version: v1
+baseUri: http://api.acme.com/accountmanagement/v1/
+types:
+  TestType:
+    type: object
+    properties:
+      id: number
+      optional?: string
+      expanded:
+        type: object
+        properties:
+          count: number
+
+###########
+# CUSTOMERS
+###########
+/customers:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+
+/customer/{customer_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+
+/customer/{customer_id}/accounts/:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+
+# delete, update, create account
+/customer/{customer_id}/account/{account_id}:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+
+    put:
+      responses:
+        200:
+          body:
+            application/json:
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+
+# add account
+/customer/{customer_id}/account:
+    post:
+      responses:
+        200:
+          body:
+            application/json:
+
+
+/customer/add:
+    post:
+      responses:
+        200:
+          body:
+            application/json:
+
+/customer/update/{customer_id}:
+    put:
+      responses:
+        200:
+          body:
+            application/json:
+
+/customer/delete/{customer_id}:
+    put:
+      responses:
+        200:
+          body:
+            application/json:
+
+###########
+# ACCOUNTS
+###########
+/account/{account_id}:
+  put:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "id" : "1234"
+              }
+  delete:
+      responses:
+        204:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+
+/accounts:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+
+###########
+# TRANSACTIONS
+###########
+/transaction:
+    post:
+      responses:
+        200:
+          body:
+            application/json:
